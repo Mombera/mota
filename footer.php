@@ -1,7 +1,14 @@
 <footer id="footer" role="contentinfo">
-    <div>
-    TOUS DROITS RÉSERVÉS
-    </div>
+        <?php
+        wp_nav_menu(array(
+            'theme_location' => 'footer', 
+            'container' => 'nav', 
+            'container_class' => 'footer-menu', 
+            'menu_class' => 'menuF', 
+        ));
+    ?>
+
+        TOUS DROITS RÉSERVÉS
 </footer>
 </div>
 <?php wp_footer(); ?>

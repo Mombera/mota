@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 5%;
+    padding: 2% 10%;
+    margin-bottom: 5%;
 }
 #menu ul{
     display: flex;
@@ -32,7 +33,7 @@
         font-size: 3rem;
         background-color: var(--rouge);
         color: white;
-        gap: 1rem;
+        gap: 2rem;
         height: 100vh;
         justify-content: center;
     }
