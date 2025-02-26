@@ -1,0 +1,26 @@
+.fadeIn {
+    animation: fadeIn 0.5s linear forwards;
+}
+.titleSlideIn {
+    animation: titleSlideIn 1s ease-in-out forwards;
+}
+
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes titleSlideIn {
+    from {
+      transform: translate3d(0, 200px, 0);
+      opacity: 1;
+    }
+    to {
+      transform: translate3d(0, 0px, 0);
+      opacity: 1;
+    }
+  }

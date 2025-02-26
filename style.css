@@ -11,3 +11,67 @@ Text Domain: mota
 
 /* Import du style du thème parent */
 
+@import url(css/header.css);
+@import url(css/animation.css);
+
+
+/************ GENERAL ****************/
+html{
+    font-size: 16px;
+}
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body, h1, h2, h3, h4, h5, h6  {
+    font-family: 'SpaceMono', monospace;
+    margin: 0; 
+}
+
+strong {
+    font-family: 'SpaceMono', monospace; 
+    font-weight: bold; 
+}
+a:visited {
+    color: inherit;
+}
+a{
+    color: inherit;
+}
+
+/**** polices ****/
+@font-face {
+    font-family: 'SpaceMono';
+    src: url('/wp-content/themes/mota/fonts/SpaceMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SpaceMono';
+    src: url('/wp-content/themes/mota/fonts/SpaceMono-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SpaceMono';
+    src: url('/wp-content/themes/mota/fonts/SpaceMono-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/****** COLORS ******/
+
+:root {
+--rouge: #E00000;
+--mid-grey: #D8D8D8;
+--light-red: #FE5858;
+--dark-blue: #313144;
+--light-grey: #E5E5E5;
+--third-red: #FFD6D6;
+--dark-grey: #C4C4C4;
+}
+
