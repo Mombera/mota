@@ -16,7 +16,7 @@
         <div class="menu-toggle" aria-label="Ouvrir le menu">
             <img class="hamburger-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/hamburger.png" alt="Menu" />
         </div>
-        <nav id="menu" class="fadeIn">
+        <nav id="menu" class="">
             <?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'link_before' => '<span itemprop="name">', 'link_after' => '</span>' ) ); ?>
         </nav>
     </div>

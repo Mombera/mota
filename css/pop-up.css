@@ -1,0 +1,121 @@
+
+#popup{
+    display: none;
+}
+
+.popup-overlay {
+    position: fixed; /* Position fixe */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fond sombre */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* S'assure que la popup est au-dessus du contenu */
+    display: flex;
+}
+
+.popup-content {
+    overflow: hidden;
+    background: white;
+    padding: 0px 20px 20px 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    border: solid 1px black;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    font-size: 55px;
+    color: white;
+    cursor: pointer;
+}
+
+.popup-close:hover {
+    color: #ff0000;
+} 
+
+.popTitle {
+    letter-spacing: 0.2rem;
+    margin-top: 1rem;
+    justify-self: center;
+    font-size: 3.1rem; 
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1;
+    padding: 0px  0px 20px 0px;
+}
+
+
+.contact-form .wpcf7-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-self: center;
+    font-family: Poppins;
+    text-transform: uppercase;
+    gap: 1rem;
+}
+.contact-form p{
+    text-align: left;
+}
+
+.contact-form .wpcf7-submit{
+    font-family: SpaceMono;
+}
+.wpcf7-spinner{
+    display: none;
+}
+
+.contact-form input, .contact-form textarea{
+    border-radius: 8px;
+    border:  solid 1px #B8BBC2;
+    font-size: 1.2rem;
+    width: 250px;
+    padding: 10px 10px;
+}
+.send input{
+    font-size: 1rem;
+    border-radius: 2px;
+    border: none;
+    box-shadow: 0px 2px 1px 0px #00000005;
+    background-color: #D8D8D8;
+    padding: 1rem;
+}
+
+
+.wpcf7-not-valid-tip{
+    max-width: 90%;
+    font-size: 0.7rem;
+    color: var(--rouge);
+}
+.contact-form p {
+    all: unset;
+}
+.contact-form p{
+    text-align: left;
+    align-self: center;
+}
+
+.wpcf7 form .wpcf7-response-output {
+    margin: 0;
+    font-size: 0.7rem;
+}
+.red{
+    color: var(--rouge);
+}
+
+
+@media screen and (max-width: 768px) {
+    .popup-content{
+        scale: 90%;
+    }
+    .popup-close {
+    top: 1%;
+    right: 1%;
+    }
+}

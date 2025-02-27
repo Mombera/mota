@@ -2,27 +2,38 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.getElementById('menu');
     const icon = document.querySelector('.hamburger-icon');
-    const menuItems = document.querySelectorAll(".menu li")
-
-    if (!menuToggle || !menu || !icon) {
-        return; // Arrête l'exécution si un élément est manquant
-    }
+    const menuItems = document.querySelectorAll(".menu li");
+    const contactBtn = document.querySelector('.menu-item-23');
+    const popup = document.getElementById('popup');
 
     menuToggle.addEventListener('click', function() {
-        menu.classList.toggle('open');
-        icon.src = menu.classList.contains('open') 
-            ? themeData.themeUrl + '/assets/openhamburger.png' 
-            : themeData.themeUrl + '/assets/hamburger.png';
-        menu.style.display = menu.classList.contains('open') 
-            ? "block" 
-            : "none";
+        if (menu.classList.contains('open')) {
+            menu.classList.add('close');
+            icon.src = themeData.themeUrl + '/assets/hamburger.png';
+            setTimeout(() => {
+                menu.classList.remove('open');
+            }, 500);
+            
+        } else {
+            menu.classList.remove('close');
+            menu.classList.add('open');
+            icon.src = themeData.themeUrl + '/assets/openhamburger.png';
+        }
     });
+    
     menuItems.forEach(menuItem => {
         menuItem.classList.add('titleSlideIn');
         menuItem.addEventListener("click", () => {
-            menu.classList.remove('open'); 
+            menu.classList.add('close');
             icon.src = themeData.themeUrl + '/assets/hamburger.png';
-            menu.style.display = "none";
-         });
+            setTimeout(() => {
+                menu.classList.remove('open');
+            }, 500);
+        });
     });
+    if (contactBtn && popup) {
+        contactBtn.addEventListener('click', function () {
+            popup.style.display = 'flex';
+        })};
 });
+

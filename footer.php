@@ -8,7 +8,7 @@
         ));
     ?>
 
-        TOUS DROITS RÉSERVÉS
+        <div>TOUS DROITS RÉSERVÉS</div>
 </footer>
 </div>
 <?php wp_footer(); ?>

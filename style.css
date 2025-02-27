@@ -14,6 +14,7 @@ Text Domain: mota
 @import url(css/header.css);
 @import url(css/animation.css);
 @import url(css/footer.css);
+@import url(css/pop-up.css);
 
 
 /************ GENERAL ****************/
@@ -63,6 +64,12 @@ a{
     src: url('/wp-content/themes/mota/fonts/SpaceMono-Italic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/wp-content/themes/mota/fonts/Poppins-Medium.ttf') format('truetype');
+    font-weight: medium;
+    font-style: normal;
 }
 
 /****** COLORS ******/

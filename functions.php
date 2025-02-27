@@ -40,6 +40,12 @@ function theme_enqueue_scripts() {
         null,
         true
     );
+    wp_enqueue_script(
+        'pop-up-script', 
+        get_stylesheet_directory_uri() . '/js/pop-up.js', 
+        null,
+        true
+    );
     wp_localize_script('header-script', 'themeData', array(
         'themeUrl' => get_stylesheet_directory_uri()
     ));
