@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const menu = document.getElementById('menu');
     const icon = document.querySelector('.hamburger-icon');
     const menuItems = document.querySelectorAll(".menu li");
-    const contactBtn = document.querySelector('.menu-item-23');
-    const popup = document.getElementById('popup');
 
     menuToggle.addEventListener('click', function() {
         if (menu.classList.contains('open')) {
@@ -31,9 +29,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500);
         });
     });
-    if (contactBtn && popup) {
-        contactBtn.addEventListener('click', function () {
-            popup.style.display = 'flex';
-        })};
 });
 

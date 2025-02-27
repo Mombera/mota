@@ -9,8 +9,8 @@
     ?>
 
         <div>TOUS DROITS RÉSERVÉS</div>
-</footer>
-</div>
+    </footer>
+    <? include('parts/pop-up.php'); ?>
 <?php wp_footer(); ?>
 </body>
 </html>
