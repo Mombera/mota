@@ -4,10 +4,8 @@ function mota_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'mota_enqueue_styles');
 
-//* LOGO*//
-// Fonction pour ajouter les fonctionnalités du thème
+//* LOGO et menu*//
 function mota_theme_setup() {
-    // Support du logo personnalisé
     add_theme_support('custom-logo', array(
         'height'      => 100,  
         'width'       => 300,  
@@ -15,22 +13,36 @@ function mota_theme_setup() {
         'flex-width'  => true, 
     ));
 
-    // Enregistrement du menu footer
     register_nav_menu('footer', __('Menu Footer'));
 }
-
-// Ajouter les actions pour le setup du thème
 add_action('after_setup_theme', 'mota_theme_setup');
+/****HERO ****/
+function theme_customize_register($wp_customize) {
+    $wp_customize->add_section('hero_section', array(
+        'title' => __('Image Hero', 'mon-theme'),
+        'priority' => 30,
+    ));
 
-// Fonction pour enregistrer les menus (ici footer)
-function register_footer_menu() {
-    // Enregistre un emplacement de menu pour le footer
-    register_nav_menu('footer', __('Menu Footer'));
+    $wp_customize->add_setting('hero_image', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_image_control', array(
+        'label' => __('Choisissez une image Hero', 'mon-theme'),
+        'section' => 'hero_section',
+        'settings' => 'hero_image',
+    )));
 }
+add_action('customize_register', 'theme_customize_register');
 
-// Appeler la fonction d'enregistrement du menu footer
-add_action('after_setup_theme', 'register_footer_menu');
 
+
+function my_custom_image_sizes() {
+    update_option( 'medium_size_w', 400 );
+    update_option( 'medium_size_h', 0 ); 
+}
+add_action('after_setup_theme', 'my_custom_image_sizes');
 
 
 function theme_enqueue_scripts() {
@@ -43,6 +55,12 @@ function theme_enqueue_scripts() {
     wp_enqueue_script(
         'pop-up-script', 
         get_stylesheet_directory_uri() . '/js/pop-up.js', 
+        null,
+        true
+    );
+    wp_enqueue_script(
+        'single-photo-script', 
+        get_stylesheet_directory_uri() . '/js/single-photo.js', 
         null,
         true
     );

@@ -1,0 +1,40 @@
+.photo-content p{
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+.photo-content h1{
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.Portrait.photo-content{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.Portrait.photo-content .text-container{
+    width: 42vw;
+    align-self: flex-end;
+    border-bottom: solid 1px black;
+}
+.photo-content img{
+    width: 100%;
+    height: auto;
+}
+.Portrait .photo-container{
+    width: 45vw;
+}
+
+@media screen and (max-width: 768px) {
+    .Portrait.photo-content .text-container{
+        align-self: flex-start;
+    }
+    .photo-content{
+        flex-direction: column-reverse;
+    }
+    .photo-content h1{
+        font-size: 4rem;
+    }
+    .Portrait .photo-container, .Portrait.photo-content .text-container{
+        width: 100%;
+    }
+}
