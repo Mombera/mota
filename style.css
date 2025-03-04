@@ -14,8 +14,8 @@ Text Domain: mota
 @import url(css/header.css);
 @import url(css/animation.css);
 @import url(css/footer.css);
-@import url(css/pop-up.css);
 @import url(css/content.css);
+@import url(css/overlays.css);
 
 
 /************ GENERAL ****************/
@@ -68,6 +68,9 @@ a{
     text-decoration: none;
     color: inherit;
 }
+p{
+    margin: 0;
+}
 
 /*** HERO***/
 .hero-section h1{
@@ -113,6 +116,12 @@ a{
     font-family: 'Poppins';
     src: url('/wp-content/themes/mota/fonts/Poppins-Medium.ttf') format('truetype');
     font-weight: medium;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('/wp-content/themes/mota/fonts/Poppins-light.ttf') format('truetype');
+    font-weight: 300;
     font-style: normal;
 }
 

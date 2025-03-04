@@ -59,8 +59,8 @@ function theme_enqueue_scripts() {
         true
     );
     wp_enqueue_script(
-        'single-photo-script', 
-        get_stylesheet_directory_uri() . '/js/single-photo.js', 
+        'lightbox-script', 
+        get_stylesheet_directory_uri() . '/js/lightbox.js', 
         null,
         true
     );

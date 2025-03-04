@@ -31,7 +31,7 @@
 .redblink{
   animation: blink 2s linear infinite;
 }
-.popup-content {
+.popup-content, .lightbox-image{
   animation: popupAppear 1s forwards;
 }
 
