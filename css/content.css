@@ -1,11 +1,25 @@
+
+#category-filter{
+    text-transform: uppercase;
+    font-family: 'Poppins';
+    font-weight: 500;
+    width: 260px;
+    padding: 12px 18px;
+    border: solid 1px #B8BBC2;
+    border-radius: 8px;
+    appearance: none
+}
+
+
+
+.filter-container{
+    margin-bottom: 40px;
+}
+
+
+/**** SINGLE ET APERCU*****/
 .apercu{
     margin-top: 75px;
-}
-.main-page .preview-container{
-    flex-wrap: wrap;
-}
-.main-page .image-preview{
-    max-width: 48%;
 }
 .cta:hover{
     cursor: pointer;
@@ -88,10 +102,7 @@
     width: 80px;
     height: 70px;  
 }
-.nav-image{
-    position: absolute;
-    bottom: 40px; 
-    opacity: 1;
+.nav-image .size-thumbnail{
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     transform: translateY(10px);
 }
@@ -108,45 +119,43 @@
     flex-direction: column;
 }
 
-
-.suggestion-container ul li a .fleche-droite, 
-.suggestion-container ul li a .fleche-gauche {
+.suggestion-container ul li a .droite .fleche, 
+.suggestion-container ul li a .gauche .fleche {
     width: 25px;
     position: relative;
     z-index: 2;
     height: auto;
-    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.suggestion-container ul li a:hover .nav-image .size-thumbnail {
+    opacity: 1;
+    visibility: visible; 
+    transform: translateY(0); 
 }
 
-.nav-image {
+.nav-image .size-thumbnail{
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.suggestion-container ul li:hover .nav-image {
-    opacity: 1;
-    visibility: visible;
-}
-
-.nav-image img {
-    width: 120px;
-    height: auto;
-    border-radius: 5px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-.size-thumbnail{
-    position: absolute;
-    top: -70px;
-}
-.suggestion-container ul li:nth-child(2) .nav-image img{
-    right: -25px;
-}
-
-
-
-.preview-container{
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.nav-image.droite .size-thumbnail{
+    position: absolute;
+    bottom: 30px;
+    right: 1px;
+}
+.nav-image.gauche .size-thumbnail{
+    position: absolute;
+    bottom: 30px;
+    right: 1px;
+}
+
+/****** Aperçu   ***********/
+.preview-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 .apercu h3{
@@ -163,6 +172,7 @@
     height: 100%;
     object-fit: cover;
     max-height: 495px;
+    aspect-ratio: 564/495;
 }
 .image-preview .inner{
     position: relative;
@@ -242,7 +252,7 @@
     .photo-post.no-border{
         border: none;
     }
-    .main-page .image-preview {
-        max-width: 100%;
+    .preview-container{
+        grid-template-columns: 1fr;
     }
 } 

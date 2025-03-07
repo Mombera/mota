@@ -44,20 +44,20 @@ $next_post = get_next_post(false);
                 if ($prev_post) : ?>
                 <li>
                     <a href="<?php echo get_permalink($prev_post); ?>">
-                        <div class="nav-image">
+                        <div class="nav-image gauche">
                             <?php echo get_the_post_thumbnail($prev_post, 'thumbnail'); ?>
+                            <img class="fleche" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/precedent black.svg" alt="Précédent">
                         </div>
-                        <img class="fleche-gauche" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/precedent black.svg" alt="Précédent">
                     </a>
                 </li>
             <?php endif; ?>
             <?php if ($next_post) : ?>
                 <li>
                     <a href="<?php echo get_permalink($next_post); ?>">
-                        <div class="nav-image">
+                        <div class="nav-image droite">
                             <?php echo get_the_post_thumbnail($next_post, 'thumbnail'); ?>
+                            <img class="fleche" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/suivant black.svg" alt="Suivant">            
                         </div>
-                        <img class="fleche-droite" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/suivant black.svg" alt="Suivant">            
                     </a>
                 </li>
             <?php endif; ?>

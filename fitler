@@ -1,0 +1,14 @@
+ <div class="filter-container">
+            <div class="filters">
+                <select id="category-select" name="category">
+                    <option value="" disabled selected>Catégorie</option>
+                    <option value="category1">Catégorie 1</option>
+                    <option value="category2">Catégorie 2</option>
+                    <option value="category3">Catégorie 3</option>
+                    <option value="category4">Catégorie 4</option>
+                    <option value="category5">Catégorie 5</option>
+                </select>
+            </div>
+            <div class="sort">
+            </div>
+        </div>

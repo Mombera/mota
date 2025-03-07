@@ -1,54 +1,56 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightbox-image");
-    const lightboxRef = document.querySelector('.ref');
-    const lightboxCat = document.querySelector('.categorie');
-    const suivant = document.querySelector('.suivante');
-    const precedente = document.querySelector('.precedente');
+jQuery(document).ready(function($) {
+    const $lightbox = $('#lightbox');
+    const $lightboxImage = $('#lightbox-image');
+    const $lightboxRef = $('.ref');
+    const $lightboxCat = $('.categorie');
+    const $suivant = $('.suivante');
+    const $precedente = $('.precedente');
     
     let images = [];
     let currentIndex = 0;
-
-    document.querySelectorAll(".icon.fullscreen").forEach((icon, index) => {
-        icon.addEventListener("click", function () {
-            const inner = this.closest(".inner");
-            images = Array.from(document.querySelectorAll(".post-thumbnail"));
-            currentIndex = images.indexOf(inner.querySelector(".post-thumbnail"));
-            updateLightbox(currentIndex);
+    window.initializeLightbox = function() {
+        $(".icon.fullscreen").each(function(index) {
+            $(this).on("click", function() {
+                const $inner = $(this).closest(".inner");
+                images = $(".post-thumbnail").toArray();
+                currentIndex = images.indexOf($inner.find(".post-thumbnail")[0]);
+                updateLightbox(currentIndex);
+            });
         });
-    });
+    }
 
     function updateLightbox(index) {
         if (images.length > 0) {
             if (index < 0) {
-                index = images.length - 1; 
+                index = images.length - 1;
             } else if (index >= images.length) {
-                index = 0; 
+                index = 0;
             }
             currentIndex = index;
-            const image = images[currentIndex];
-            const fullSizeSrc = image.getAttribute("data-full");
-            const ref = image.closest('.inner').querySelector(".post-ref").textContent;
-            const cat = image.closest('.inner').querySelector(".post-cat").textContent;
+            const $image = $(images[currentIndex]);
+            const fullSizeSrc = $image.data("full");
+            const ref = $image.closest('.inner').find(".post-ref").text();
+            const cat = $image.closest('.inner').find(".post-cat").text();
 
-            lightboxImage.src = fullSizeSrc;
-            lightboxRef.textContent = ref;
-            lightboxCat.textContent = cat;
-            lightbox.classList.add("active");
+            $lightboxImage.attr("src", fullSizeSrc);
+            $lightboxRef.text(ref);
+            $lightboxCat.text(cat);
+            $lightbox.addClass("active");
         }
     }
 
-    suivant.addEventListener("click", function () {
+    $suivant.on("click", function() {
         updateLightbox(currentIndex + 1);
     });
 
-    precedente.addEventListener("click", function () {
+    $precedente.on("click", function() {
         updateLightbox(currentIndex - 1);
     });
 
-    lightbox.addEventListener("click", function (event) {
-        if (event.target !== lightboxImage && !event.target.closest('.suivante') && !event.target.closest('.precedente')) {
-            lightbox.classList.remove("active");
+    $lightbox.on("click", function(event) {
+        if (!$(event.target).is($lightboxImage) && !$(event.target).closest('.suivante').length && !$(event.target).closest('.precedente').length) {
+            $lightbox.removeClass("active");
         }
     });
+    initializeLightbox();
 });

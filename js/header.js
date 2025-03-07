@@ -1,33 +1,31 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.getElementById('menu');
-    const icon = document.querySelector('.hamburger-icon');
-    const menuItems = document.querySelectorAll(".menu li");
+jQuery(document).ready(function($) {
+    const $menuToggle = $('.menu-toggle');
+    const $menu = $('#menu');
+    const $icon = $('.hamburger-icon');
+    const $menuItems = $(".menu li");
 
-    menuToggle.addEventListener('click', function() {
-        if (menu.classList.contains('open')) {
-            menu.classList.add('close');
-            icon.src = themeData.themeUrl + '/assets/hamburger.png';
-            setTimeout(() => {
-                menu.classList.remove('open');
+    $menuToggle.on('click', function() {
+        if ($menu.hasClass('open')) {
+            $menu.addClass('close');
+            $icon.attr('src', themeData.themeUrl + '/assets/hamburger.png');
+            setTimeout(function() {
+                $menu.removeClass('open');
             }, 500);
-            
         } else {
-            menu.classList.remove('close');
-            menu.classList.add('open');
-            icon.src = themeData.themeUrl + '/assets/openhamburger.png';
+            $menu.removeClass('close');
+            $menu.addClass('open');
+            $icon.attr('src', themeData.themeUrl + '/assets/openhamburger.png');
         }
     });
-    
-    menuItems.forEach(menuItem => {
-        menuItem.classList.add('titleSlideIn');
-        menuItem.addEventListener("click", () => {
-            menu.classList.add('close');
-            icon.src = themeData.themeUrl + '/assets/hamburger.png';
-            setTimeout(() => {
-                menu.classList.remove('open');
+
+    $menuItems.each(function() {
+        $(this).addClass('titleSlideIn');
+        $(this).on("click", function() {
+            $menu.addClass('close');
+            $icon.attr('src', themeData.themeUrl + '/assets/hamburger.png');
+            setTimeout(function() {
+                $menu.removeClass('open');
             }, 500);
         });
     });
 });
-
