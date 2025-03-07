@@ -1,18 +1,99 @@
-
+.filtres:hover{
+    background-color: #E00000;
+    appearance: none!important;
+}
 #category-filter{
-    text-transform: uppercase;
-    font-family: 'Poppins';
-    font-weight: 500;
-    width: 260px;
+    display: none;
+}
+#format-filter{
+    display: none;
+}
+#category-filter-custom:active{
+    border: 1px solid #215AFF;
+}
+#category-filter-custom, #format-filter-custom {
+    position: relative;
+    width: 223px;
+    font-size: 12px;
+    cursor: pointer;
     padding: 12px 18px;
-    border: solid 1px #B8BBC2;
+    border: 1px solid #B8BBC2;
     border-radius: 8px;
-    appearance: none
+    color: #313144;
+    font-family: "Poppins";
+    font-weight: 500;
+    text-transform: uppercase;
+}
+#category-filter-custom.active{
+    border-radius: 8px 8px 0px 0px;
+    border: solid 1px #215AFF;
+}
+#category-filter-options div:hover{
+    background-color: #FFD6D6;
+}
+#category-filter-options div:active {
+    background-color: #FE5858;
+}
+#category-filter option:checked {
+    background-color: #FFD6D6;
+    color: #fff;
+}
+/* Ajouter une flèche à droite */
+ #category-filter-custom::after, #format-filter-custom::after {
+    content: url('../assets/icon.png');
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+} 
+#category-filter-custom.active::after {
+    transform: rotate(180deg);
+    top: 25%;
+}
+#category-filter-custom.used{
+    background-color: #E00000;
+    color: white;
 }
 
+/* Afficher la liste déroulante personnalisée */
+#category-filter-options{
+    display: none;
+    border: none;
+    width: 260px;
+    overflow-y: auto;
+    z-index: 999;
+    font-family: "Poppins";
+    font-size: 12px;
+    font-weight: 500;
+    color: #313144;
+}
+#format-filter-options{
+    display: none;
+    border: none;
+    width: 260px;
+    overflow-y: auto;
+    z-index: 999;
+    font-family: "Poppins";
+    font-size: 12px;
+    font-weight: 500;
+    color: #313144;
+}
 
-
+/* Options personnalisées */
+#category-filter-options div {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+.filters{
+    display: flex;
+}
+.filter1{
+    display: flex;
+    flex-direction: column;
+}
 .filter-container{
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 40px;
 }
 
@@ -254,5 +335,12 @@
     }
     .preview-container{
         grid-template-columns: 1fr;
+    }
+    .filter-container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .filters{
+        flex-direction: column;
     }
 } 
