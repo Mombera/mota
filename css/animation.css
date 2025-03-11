@@ -35,6 +35,10 @@
   animation: popupAppear 1s forwards;
 }
 
+.active ul li{
+  animation: slideDown 0.5s forwards;
+}
+
   @keyframes rightSlide {
     from {
       transform: translate3d(-250px, 0, 0);
@@ -56,6 +60,18 @@
       opacity: 1;
     }
   }
+
+  @keyframes slideDown {
+    from {
+      transform: translate3d(0, -100px, 0);
+      opacity: 0;
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+
 
   @keyframes blink {
     0% {

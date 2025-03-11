@@ -38,15 +38,7 @@ function theme_enqueue_scripts() {
         array('jquery'),  
         null,
         true  
-    );
-    wp_enqueue_script(
-        'filters-script', 
-        get_stylesheet_directory_uri() . '/js/filters.js', 
-        array('jquery'),  
-        null, 
-        true  
-    );
-    
+    );  
     wp_enqueue_script(
         'pop-up-script', 
         get_stylesheet_directory_uri() . '/js/pop-up.js', 
@@ -99,15 +91,21 @@ function get_random_featured_photo() {
 
     if ($query->have_posts()) {
         $query->the_post();
-        $image_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+
+        // Récupérer les URL des images dans différentes tailles
+        $full_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+        $large_image_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
         wp_reset_postdata();
 
-        if ($image_url) {
-            return rest_ensure_response(['image_url' => $image_url]);
+        if ($full_image_url && $large_image_url) {
+            return rest_ensure_response([
+                'image_url' => $full_image_url,         // URL de l'image en taille pleine
+                'large_image_url' => $large_image_url // URL de l'image en taille moyenne
+            ]);
         }
     }
 
-    return rest_ensure_response(['image_url' => '']);
+    return rest_ensure_response(['image_url' => '', 'large_image_url' => '']);
 }
 
 add_action('rest_api_init', function () {
@@ -119,8 +117,9 @@ add_action('rest_api_init', function () {
 
 
 
+
 /****** chargement AJAX */
-function get_photo_query_params($paged = 1, $category_filter = '', $format_filter = '', $date_sort = 'rand') {
+function get_photo_query_params($paged = 1, $category_filter = '', $format_filter = '', $date_sort = '') {
     $args = array(
         'post_type'      => 'photo',
         'posts_per_page' => 8,
@@ -133,8 +132,9 @@ function get_photo_query_params($paged = 1, $category_filter = '', $format_filte
         $args['order'] = 'ASC';
     } elseif ($date_sort === 'desc') {
         $args['order'] = 'DESC';
-    } elseif ($date_sort === 'rand') {
-        $args['orderby'] = 'rand'; // Utilisation du tri aléatoire
+    } else {
+        $args['orderby'] = 'title';
+        $args['order'] = 'ASC'; // Utilisation du tri aléatoire
     }
     if (!empty($category_filter)) {
         $args['tax_query'][] = array(
@@ -166,7 +166,7 @@ function load_more_photos() {
     $paged = isset($_GET['page']) ? intval($_GET['page']) : 1;
     $category_filter = isset($_GET['category_filter']) ? sanitize_text_field($_GET['category_filter']) : '';
     $format_filter = isset($_GET['format_filter']) ? sanitize_text_field($_GET['format_filter']) : '';
-    $date_sort = isset($_GET['date_sort']) ? sanitize_text_field($_GET['date_sort']) : 'rand';  // Récupérer le paramètre de tri
+    $date_sort = isset($_GET['date_sort']) ? sanitize_text_field($_GET['date_sort']) : '';  // Récupérer le paramètre de tri
 
     // Préparer la requête avec les filtres et le tri
     $args = get_photo_query_params($paged, $category_filter, $format_filter, $date_sort);

@@ -1,4 +1,5 @@
 <div id="lightbox" class="lightbox">
+<span id="popup-close" class="popup-close redblink">&times;</span>
     <div class="lightbox-content">
         <img id="lightbox-image" class="lightbox-image" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/fullscreen.svg" alt="Agrandissement">
         <div class="light-info">

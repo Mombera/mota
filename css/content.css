@@ -1,17 +1,20 @@
-.filtres:hover{
-    background-color: #E00000;
-    appearance: none!important;
+/* Style commun pour les filtres personnalisés */
+
+.filter li:last-child {
+    border-radius: 0 0 8px 8px;
 }
-#category-filter{
-    display: none;
+
+
+.container.photo-post.no-border{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-#format-filter{
-    display: none;
+
+#load-more-btn{
+    margin: 40px 0;
 }
-#category-filter-custom:active{
-    border: 1px solid #215AFF;
-}
-#category-filter-custom, #format-filter-custom {
+.filter p{
     position: relative;
     width: 223px;
     font-size: 12px;
@@ -23,43 +26,44 @@
     font-family: "Poppins";
     font-weight: 500;
     text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-#category-filter-custom.active{
+
+.filter .active p {
     border-radius: 8px 8px 0px 0px;
     border: solid 1px #215AFF;
 }
-#category-filter-options div:hover{
-    background-color: #FFD6D6;
-}
-#category-filter-options div:active {
-    background-color: #FE5858;
-}
-#category-filter option:checked {
-    background-color: #FFD6D6;
-    color: #fff;
-}
-/* Ajouter une flèche à droite */
- #category-filter-custom::after, #format-filter-custom::after {
-    content: url('../assets/icon.png');
-    position: absolute;
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-} 
-#category-filter-custom.active::after {
+.active .down-arrow{
     transform: rotate(180deg);
-    top: 25%;
 }
-#category-filter-custom.used{
+.used p{
     background-color: #E00000;
     color: white;
 }
+.icon-cont{
+    position: relative;
+}
+.filter.one .icon-cont.used img, .filter.two .icon-cont.used img, .filter.three .icon-cont.used img {
+    filter: brightness(0) invert(1);
+}
+.down-arrow{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 12px;
+    height: 8px;
+}
 
-/* Afficher la liste déroulante personnalisée */
-#category-filter-options{
-    display: none;
+#category-filter-custom.active::after, #format-filter-custom.active::after {
+    transform: rotate(180deg);
+    top: 10px;
+}
+
+/* Afficher les options lorsque l'élément est actif */
+#category-filter-options, #format-filter-options, #date-sort-custom{
     border: none;
-    width: 260px;
     overflow-y: auto;
     z-index: 999;
     font-family: "Poppins";
@@ -67,42 +71,47 @@
     font-weight: 500;
     color: #313144;
 }
-#format-filter-options{
-    display: none;
-    border: none;
-    width: 260px;
-    overflow-y: auto;
-    z-index: 999;
-    font-family: "Poppins";
-    font-size: 12px;
-    font-weight: 500;
-    color: #313144;
-}
 
-/* Options personnalisées */
-#category-filter-options div {
-    padding: 12px 24px;
+
+/* Options des filtres */
+#category-filter-options li, #format-filter-options li, #date-sort-custom li {
+    padding: 12px 0px 12px 24px;
     cursor: pointer;
 }
-.filters{
+
+/* Changer la couleur lors du survol des options */
+#category-filter-options li:hover, #format-filter-options li:hover, #date-sort-custom li:hover {
+    background-color: #FFD6D6;
+}
+
+/* Changer la couleur au clic sur une option */
+#category-filter-options li:active, #format-filter-options li:active, #date-sort-custom li:active {
+    background-color: #FE5858;
+    color: white;
+}
+
+
+/* Disposition des filtres */
+.filters {
     display: flex;
 }
-.filter1{
-    display: flex;
-    flex-direction: column;
-}
-.filter-container{
+.filter-container {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
 }
-
+.filter ul{
+    display: none;
+}
+.filter .active ul{
+    display: block !important;
+}
 
 /**** SINGLE ET APERCU*****/
 .apercu{
     margin-top: 75px;
 }
-.cta:hover{
+.cta:hover, #load-more-btn:hover{
     cursor: pointer;
     background-color: black;
     color: white;
@@ -154,9 +163,9 @@
     display: flex;
     justify-content: flex-end;
 }
-.cta{
+.cta, #load-more-btn{
     font-family:  'SpaceMono';
-    width: 40%;
+    width: 230px;
     height: 50px;
     background-color: var(--mid-grey);
     border: none;

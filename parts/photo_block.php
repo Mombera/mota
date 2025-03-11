@@ -13,7 +13,7 @@ if ($query->have_posts()) :
                     ?>
                     <img class="post-thumbnail" src="<?php echo esc_url($large_url); ?>" data-full="<?php echo esc_url($full_url); ?>" alt="Image preview">
                     <div class="overlayer">
-                        <p class="post-ref"> <?php echo get_post_field('reference', get_the_ID()); ?></p>
+                        <p class="post-ref"> <?php echo get_the_title(); ?></p>
                         <?php $post_categorie = get_the_terms(get_the_ID(), 'categorie'); ?>
                         <p class="post-cat"> <?php echo !empty($post_categorie) ? esc_html($post_categorie[0]->name) : ''; ?></p>
                         <a href="<?php the_permalink(); ?>">
