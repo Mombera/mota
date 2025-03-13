@@ -3,8 +3,6 @@
 .filter li:last-child {
     border-radius: 0 0 8px 8px;
 }
-
-
 .container.photo-post.no-border{
     display: flex;
     flex-direction: column;
@@ -55,45 +53,38 @@
     width: 12px;
     height: 8px;
 }
-
 #category-filter-custom.active::after, #format-filter-custom.active::after {
     transform: rotate(180deg);
     top: 10px;
 }
-
 /* Afficher les options lorsque l'élément est actif */
 #category-filter-options, #format-filter-options, #date-sort-custom{
     border: none;
     overflow-y: auto;
-    z-index: 999;
     font-family: "Poppins";
     font-size: 12px;
     font-weight: 500;
     color: #313144;
 }
-
-
 /* Options des filtres */
 #category-filter-options li, #format-filter-options li, #date-sort-custom li {
     padding: 12px 0px 12px 24px;
     cursor: pointer;
+    width: 237px;
+    background-color: white;
 }
-
 /* Changer la couleur lors du survol des options */
 #category-filter-options li:hover, #format-filter-options li:hover, #date-sort-custom li:hover {
     background-color: #FFD6D6;
 }
-
 /* Changer la couleur au clic sur une option */
 #category-filter-options li:active, #format-filter-options li:active, #date-sort-custom li:active {
     background-color: #FE5858;
     color: white;
 }
-
-
-/* Disposition des filtres */
 .filters {
     display: flex;
+    gap: 3.5rem;
 }
 .filter-container {
     display: flex;
@@ -105,8 +96,9 @@
 }
 .filter .active ul{
     display: block !important;
+    position: absolute;
+    z-index: 999;
 }
-
 /**** SINGLE ET APERCU*****/
 .apercu{
     margin-top: 75px;
@@ -157,7 +149,6 @@
     height: 120px;
     align-items: center;
 }
-
 .Portrait .photo-container{
     width: 50%;
     display: flex;
@@ -187,7 +178,6 @@
     justify-content: space-between;
     align-items: center;
 }
-
 .suggestion-container ul li a img{
     width: 80px;
     height: 70px;  
@@ -196,7 +186,6 @@
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     transform: translateY(10px);
 }
-
 .suggestion-container ul{
     gap: 2rem;
     display: flex;
@@ -208,7 +197,6 @@
     display: flex;
     flex-direction: column;
 }
-
 .suggestion-container ul li a .droite .fleche, 
 .suggestion-container ul li a .gauche .fleche {
     width: 25px;
@@ -348,8 +336,13 @@
     .filter-container{
         flex-direction: column;
         align-items: center;
+        gap: 8px;
     }
     .filters{
         flex-direction: column;
+        gap: 8px;
+    }
+    .apercu{
+        margin-top: 1.5rem;
     }
 } 

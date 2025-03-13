@@ -85,7 +85,6 @@ $next_post = get_next_post(false);
                         'post__not_in' => array(get_the_ID()),
                         'orderby' => 'rand',
                     );
-
                     include('parts/photo_block.php'); 
                 }
             ?>

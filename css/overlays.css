@@ -121,7 +121,6 @@ align-items: center;
 }
 
 /*************** POP UP*********/
-
 #popup{
     display: none;
 }
@@ -172,8 +171,6 @@ align-items: center;
     line-height: 1;
     padding: 0px  0px 20px 0px;
 }
-
-
 .contact-form .wpcf7-form{
     display: flex;
     justify-content: center;
@@ -193,7 +190,6 @@ align-items: center;
 .wpcf7-spinner{
     display: none;
 }
-
 .contact-form input, .contact-form textarea{
     border-radius: 8px;
     border:  solid 1px #B8BBC2;
@@ -231,7 +227,6 @@ align-items: center;
 .red{
     color: var(--rouge);
 }
-
 
 @media screen and (max-width: 768px) {
     .popup-content{

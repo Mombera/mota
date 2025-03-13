@@ -2,19 +2,20 @@
     animation: fadeIn 0.5s ease-in-out forwards;
 }
 .titleSlideIn, .custom-logo, .menu-toggle {
-    animation: rightSlide 1s ease-in-out forwards;
+    animation: rightSlide 1s ease-out forwards;
 }
 .custom-logo{
   opacity: 0;
   animation-delay: 600ms;
 }
+
 .titleSlideIn:nth-child(1){
   opacity: 0;
-  animation-delay: 400ms;
+  animation-delay: 600ms;
 }
 .titleSlideIn:nth-child(2){
   opacity: 0;
-  animation-delay: 200ms;
+  animation-delay: 300ms;
 }
 #footer ul li, #footer div{
   animation: leftSlide 1s ease-in-out forwards;
@@ -38,6 +39,15 @@
 .active ul li{
   animation: slideDown 0.5s forwards;
 }
+.hero-section{
+  opacity: 0;
+  animation: fadeIn 1s 1s ease-in forwards;
+}
+
+.entry-content, .photo-post{
+  animation:  leftSlide 1.5s ease-in-out forwards;
+  
+}
 
   @keyframes rightSlide {
     from {
@@ -45,7 +55,7 @@
       opacity: 0;
     }
     to {
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(0px, 0, 0);
       opacity: 1;
     }
   }
@@ -94,6 +104,7 @@
       transform: scale(1); 
   }
 }
+
 @keyframes fadeIn {
   from {
       opacity: 0;

@@ -16,7 +16,6 @@ jQuery(document).ready(function($) {
             ? $('#date-sort-custom').find('.icon-cont').addClass('used')
             : $('#date-sort-custom').find('.icon-cont').removeClass('used');
     }
-    
     $(document).on('click', '#category-filter-options li', function() {
         var selectedValue = $(this).data('value'); 
         $('#category-filter').val(selectedValue);
@@ -25,7 +24,6 @@ jQuery(document).ready(function($) {
         checkFilterUsed();
         filterPhotos();
     });
-    
     $(document).on('click', '#format-filter-options li', function() {
         var selectedValue = $(this).data('value'); 
         $('#format-filter').val(selectedValue);
@@ -34,7 +32,6 @@ jQuery(document).ready(function($) {
         checkFilterUsed();
         filterPhotos();
     });
-
     $(document).on('click', '#date-sort-options li', function() {
         var selectedValue = $(this).data('value');
         $('#date-sort').val(selectedValue);
@@ -44,7 +41,6 @@ jQuery(document).ready(function($) {
         checkFilterUsed();
         filterPhotos();
     });
-
     $(document).on('click', '#category-filter-custom, #format-filter-custom, #date-sort-custom', function() {
         $(this).toggleClass('active');
     });

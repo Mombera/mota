@@ -3,10 +3,6 @@ function mota_enqueue_styles() {
     wp_enqueue_style('mota-style', get_stylesheet_directory_uri() . '/style.css');
 }
 add_action('wp_enqueue_scripts', 'mota_enqueue_styles');
-function add_font_awesome() {
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css', array(), null, 'all');
-}
-add_action('wp_enqueue_scripts', 'add_font_awesome');
 
 //* LOGO et menu*//
 function mota_theme_setup() {
@@ -78,8 +74,6 @@ function theme_enqueue_scripts() {
 
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 
-
-
 /*** HERO  ***/
 function get_random_featured_photo() {
     $args = array(
@@ -115,9 +109,6 @@ add_action('rest_api_init', function () {
     ]);
 });
 
-
-
-
 /****** chargement AJAX */
 function get_photo_query_params($paged = 1, $category_filter = '', $format_filter = '', $date_sort = '') {
     $args = array(
@@ -125,7 +116,7 @@ function get_photo_query_params($paged = 1, $category_filter = '', $format_filte
         'posts_per_page' => 8,
         'paged'          => $paged,
         'orderby'        => 'date',
-        'order'          => $date_sort,  // Tri dynamique selon la valeur du filtre
+        'order'          => $date_sort, 
         'tax_query'      => array('relation' => 'AND'),
     );
     if ($date_sort === 'asc') {
@@ -154,7 +145,6 @@ function get_photo_query_params($paged = 1, $category_filter = '', $format_filte
 
     return $args;
 }
-
 
 function load_more_photos() {
     // Sécuriser l'accès avec le nonce
